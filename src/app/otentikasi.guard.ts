@@ -1,22 +1,20 @@
-import { inject } from "@angular/core";
-import { CanActivateFn, Router } from "@angular/router";
+import { inject } from '@angular/core';
+import { CanActivateFn, Router } from '@angular/router';
 
 export const otentikasiGuard: CanActivateFn = (route, state) => {
-  console.log("Otentikasi Dimulai");
+  console.log('Otentikasi dimulai');
 
-  var userId = sessionStorage.getItem("userId");
-  console.log("userId : " + userId)
+  var userId = sessionStorage.getItem('userId');
+  console.log('userId : ' + userId);
 
   if (userId == null) {
-  }
-  else if (userId == "undefined") {
-  }
-  else if (userId == "") {
-  }
-  else{
+  } else if (userId == 'undefined') {
+  } else if (userId == '') {
+  } else {
     return true;
   }
 
-  inject(Router).navigate(["/login"]);
+  inject(Router).navigate(['/login']);
+  alert('Login Dulu');
   return false;
-}
+};
